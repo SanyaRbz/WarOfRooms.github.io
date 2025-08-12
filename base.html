@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Летопись Великой Братской Войны</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="book-container">
+        <header class="book-header">
+            <h1>Летопись Великой Братской Войны</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Пролог</a></li>
+                    <li><a href="/chapter1">Глава Первая</a></li>
+                    <li><a href="/chapter2">Глава Вторая</a></li>
+                    <li><a href="/chapter3">Глава Третья</a></li>
+                    <li><a href="/chapter4">Глава Четвёртая</a></li>
+                    <li><a href="/chapter5">Глава Пятая</a></li>
+                    <li><a href="/chapter6">Послесловие</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="book-content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="book-footer">
+            <div class="page-number">
+                {% block page_number %}{% endblock %}
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
