@@ -68,7 +68,6 @@ nav a:hover {
     color: #8b4513;
 }
 
-/* Титульная страница */
 .title-page {
     text-align: center;
     padding-top: 4rem;
@@ -93,6 +92,14 @@ nav a:hover {
     letter-spacing: 3px;
 }
 
+.book-author {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    color: #8b4513;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
 .start-reading a {
     display: inline-block;
     padding: 1rem 2rem;
@@ -110,7 +117,6 @@ nav a:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Главы */
 .chapter-title {
     text-align: center;
     font-size: 2.2rem;
@@ -141,113 +147,7 @@ nav a:hover {
     padding-right: 2rem;
     color: #8b4513;
 }
-/* Улучшенные летающие слова */
-@keyframes float {
-    0% {
-        transform: translate(calc(-50vw + (100vw * var(--start-x))), calc(100vh + 100px)) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: calc(0.05 + var(--opacity));
-    }
-    90% {
-        opacity: calc(0.05 + var(--opacity));
-    }
-    100% {
-        transform: translate(calc(-50vw + (100vw * var(--end-x))), -100px) rotate(calc(360deg * var(--rotation)));
-        opacity: 0;
-    }
-}
 
-.floating-words {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.floating-word {
-    position: absolute;
-    color: rgba(139, 69, 19, 0.15);
-    font-size: calc(2rem + var(--size) * 1.5rem);
-    font-weight: bold;
-    font-family: 'Old Standard TT', serif;
-    user-select: none;
-    white-space: nowrap;
-    animation: float calc(30s + var(--speed) * 30s) linear infinite;
-    animation-delay: calc(var(--delay) * -1s);
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-    will-change: transform;
-}
-
-
-/* Новые эффекты */
-/* 1. Эффект старинного свитка */
-.book-content {
-    position: relative;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.05"><rect fill="none" stroke="brown" stroke-width="2" x="10" y="10" width="80" height="80" rx="10" ry="10"/></svg>');
-    padding: 2rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1) inset;
-}
-
-/* 2. Анимация появления текста */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.chapter p {
-    animation: fadeIn 1s ease-out;
-    animation-fill-mode: both;
-}
-
-/* Задержка для каждого абзаца */
-.chapter p:nth-child(1) { animation-delay: 0.2s; }
-.chapter p:nth-child(2) { animation-delay: 0.4s; }
-.chapter p:nth-child(3) { animation-delay: 0.6s; }
-/* ... и так далее ... */
-
-/* 3. Чернильные пятна */
-.ink-blot {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(60, 47, 47, 0.1) 0%, rgba(60,47,47,0) 70%);
-    opacity: 0.1;
-    z-index: -1;
-}
-
-/* 4. Эффект пожелтевших страниц */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(245, 240, 225, 0.8),
-        rgba(235, 220, 195, 0.8)
-    );
-    z-index: -2;
-    pointer-events: none;
-}
-
-/* 5. Анимированный заголовок */
-.chapter-title {
-    animation: titleGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes titleGlow {
-    0% { text-shadow: 0 0 5px rgba(139, 69, 19, 0.3); }
-    100% { text-shadow: 0 0 15px rgba(139, 69, 19, 0.6); }
-}
-/* Навигация между главами */
 .chapter-navigation {
     display: flex;
     justify-content: space-between;
@@ -273,227 +173,6 @@ body::before {
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-/* Улучшенные чернильные пятна */
-.ink-blot {
-    position: absolute;
-    width: calc(100px + var(--size) * 100px);
-    height: calc(100px + var(--size) * 100px);
-    background: radial-gradient(circle, rgba(60, 47, 47, 0.1) 0%, rgba(60,47,47,0) 70%);
-    opacity: calc(0.05 + var(--opacity) * 0.1);
-    z-index: -1;
-    filter: blur(1px);
-    border-radius: 50%;
-}
-
-/* Эффект дрожащего пера для финального предложения */
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-1px); }
-    50% { transform: translateX(1px); }
-    75% { transform: translateX(-1px); }
-    100% { transform: translateX(0); }
-}
-
-.final-sentence {
-    position: relative;
-    animation: shake 0.3s ease-in-out infinite;
-}
-
-/* Улучшенная анимация появления */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.chapter p {
-    animation: fadeIn 1s ease-out forwards;
-    opacity: 0;
-}
-
-/* Задержка для каждого абзаца */
-.chapter p:nth-child(1) { animation-delay: 0.2s; }
-.chapter p:nth-child(2) { animation-delay: 0.4s; }
-.chapter p:nth-child(3) { animation-delay: 0.6s; }
-
-/* Стили для диалогов */
-.dialogue {
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background: rgba(139, 69, 19, 0.05);
-    border-left: 3px solid #8b4513;
-    border-radius: 0 5px 5px 0;
-}
-
-.speaker {
-    font-weight: bold;
-    color: #5d1917;
-    margin-bottom: 0.3rem;
-}
-
-.speech {
-    font-style: italic;
-    margin: 0.5rem 0;
-    color: #3c2f2f;
-}
-
-.action {
-    font-size: 0.9rem;
-    color: #8b4513;
-    margin-top: 0.3rem;
-    font-style: italic;
-}
-
-/* Стили для звуковых эффектов */
-.sound-effect {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #8b4513;
-    margin: 1.5rem 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-/* Стили для писем */
-.letter {
-    background: rgba(245, 240, 225, 0.8);
-    border: 1px solid #8b4513;
-    border-radius: 5px;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    position: relative;
-}
-
-.letter::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(to right, #8b4513, #f5f0e1);
-    border-radius: 5px 5px 0 0;
-}
-
-.letter-header {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-top: 0;
-    color: #5d1917;
-    border-bottom: 1px dashed #8b4513;
-    padding-bottom: 0.5rem;
-}
-
-.letter-content {
-    margin: 1rem 0;
-}
-
-.letter-content ul {
-    padding-left: 1.5rem;
-}
-
-.letter-content li {
-    margin-bottom: 0.5rem;
-}
-
-.letter-signature {
-    text-align: right;
-    font-weight: bold;
-    margin-top: 1rem;
-    color: #8b4513;
-    font-style: italic;
-}
-
-/* Стили для договора */
-.treaty {
-    background: rgba(139, 69, 19, 0.05);
-    border: 2px double #8b4513;
-    padding: 2rem;
-    margin: 2rem 0;
-    text-align: center;
-}
-
-.treaty-header {
-    font-weight: bold;
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    color: #5d1917;
-    text-decoration: underline;
-}
-
-.treaty-content {
-    text-align: left;
-    margin: 0 auto;
-    max-width: 80%;
-}
-
-.treaty-content ul {
-    padding-left: 1.5rem;
-}
-
-.treaty-content li {
-    margin-bottom: 1rem;
-}
-
-.treaty-conclusion {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-top: 1.5rem;
-    color: #5d1917;
-    text-align: center;
-}
-
-/* Стили для эпилога */
-.section-title {
-    text-align: center;
-    margin: 2rem 0;
-    color: #5d1917;
-    border-bottom: 1px solid #8b4513;
-    padding-bottom: 0.5rem;
-}
-
-.final-note {
-    margin-top: 3rem;
-    padding: 1.5rem;
-    background: rgba(139, 69, 19, 0.08);
-    border-radius: 5px;
-    font-style: italic;
-    text-align: center;
-}
-
-.epilogue {
-    margin-top: 1.5rem;
-    font-weight: bold;
-    font-size: 1.3rem;
-    color: #5d1917;
-}
-
-/* Навигация в конце */
-.chapter-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(139, 69, 19, 0.3);
-}
-/* На титульной странице */
-.title-page .book-author {
-    font-size: 1.3rem;
-    margin-top: 1rem;
-    color: #8b4513;
-    font-style: italic;
-    letter-spacing: 1px;
-}
-
-/* В послесловии */
 .signature-block {
     margin-top: 2rem;
     text-align: center;
