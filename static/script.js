@@ -6,33 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     floatContainer.className = 'floating-words';
     document.body.appendChild(floatContainer);
 
-    // Получаем текущий путь
-    const currentPath = window.location.pathname;
-    const words = pageWords[currentPath] || pageWords['/'];
 
-    // Создаем летающие слова
-    words.forEach((word, index) => {
-        createFloatingWord(word, index);
-    });
-
-    function createFloatingWord(word, index) {
-        const wordEl = document.createElement('div');
-        wordEl.className = 'floating-word';
-        wordEl.textContent = word;
-
-        // Случайные параметры с привязкой к индексу для разнообразия
-        const seed = (index * 123) % 100 / 100;
-
-        wordEl.style.setProperty('--start-x', 0.1 + seed * 0.8);
-        wordEl.style.setProperty('--end-x', 0.1 + (1 - seed) * 0.8);
-        wordEl.style.setProperty('--rotation', 0.5 + seed);
-        wordEl.style.setProperty('--opacity', 0.1 + seed * 0.1);
-        wordEl.style.setProperty('--size', seed);
-        wordEl.style.setProperty('--speed', seed);
-        wordEl.style.setProperty('--delay', index * 2);
-
-        floatContainer.appendChild(wordEl);
-    }
 
 
     // Добавляем чернильные пятна
@@ -71,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 });
+
 
 
 
